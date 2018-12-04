@@ -18,5 +18,14 @@ namespace Server
         {
             return socket.Accept();
         }
+        /// <summary>
+        /// 开始监听
+        /// </summary>
+        /// <param name="tcpListener"></param>
+        /// <param name="iPEndPoint"></param>
+        public static TcpListener TcpListener(IPEndPoint iPEndPoint)
+        {
+            return new TcpListener(iPEndPoint);
+        }
     }
 }

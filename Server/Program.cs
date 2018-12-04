@@ -28,7 +28,8 @@ namespace Server
                     byte[] bytes = new byte[4096];
                     int length = serverSocket.Receive(bytes, bytes.Length, 0);
                     clientMsg += Encoding.Unicode.GetString(bytes, 0, length);
-                    Console.WriteLine($"client:{clientMsg}");
+                    //在控制台输出ip@端口:msg
+                    Console.WriteLine($"{((IPEndPoint)serverSocket.RemoteEndPoint).Address}@{((IPEndPoint)serverSocket.RemoteEndPoint).Port}:{clientMsg}");
                 }
             });
             while (true)

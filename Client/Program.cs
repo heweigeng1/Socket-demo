@@ -18,7 +18,7 @@ namespace Client
             IPEndPoint iPEndPoint = new IPEndPoint(ip, port);
             Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             Utils.Connect(socket, iPEndPoint);
-            Utils.Send(socket, "我是好哥哥");
+            Utils.Send(socket, "进入房间");
             Task.Run(() =>
             {
                 while (true)
@@ -27,7 +27,7 @@ namespace Client
                     byte[] bytes = new byte[4096];
                     int length = socket.Receive(bytes, bytes.Length, 0);
                     serverMsg += Encoding.Unicode.GetString(bytes, 0, length);
-                    Console.WriteLine($"server:{serverMsg}");
+                    Console.WriteLine($"{((IPEndPoint)socket.RemoteEndPoint).Address}@{((IPEndPoint)socket.RemoteEndPoint).Port}:{serverMsg}");
                 }
             });
             while (true)
