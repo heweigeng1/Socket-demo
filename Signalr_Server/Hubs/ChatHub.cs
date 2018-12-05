@@ -1,0 +1,36 @@
+﻿using Microsoft.AspNetCore.SignalR;
+using System.Threading.Tasks;
+
+namespace Signalr_Server.Hubs
+{
+    /// <summary>
+    /// 集线器
+    /// </summary>
+    public class ChatHub : Hub
+    {
+        /// <summary>
+        /// 发送到所有
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public Task SendMessage(string user, string msg)
+        {
+            return Clients.All.SendAsync("ReceiveMessage", user, msg);
+        }
+        /// <summary>
+        /// 发送到分组
+        /// </summary>
+        /// <param name="group"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        public Task SendMessageToGroup(string group, string msg)
+        {
+            return Clients.Group(group).SendAsync("ReceiveMessage",msg);
+        }
+        public Task SendMessageToClient(string userCode, string msg)
+        {
+            return Clients.Client(userCode).SendAsync("ReceiveMessage",msg);
+        }
+    }
+}

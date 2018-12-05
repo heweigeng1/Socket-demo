@@ -13,6 +13,7 @@ namespace WebSocket_Client
             //var webSocket = new ClientWebSocket();
             Console.WriteLine("my websocket!!!");
             var socket = ConnectAsync("ws://127.0.0.1:5999/ws").Result;
+
             //webSocket.ConnectAsync(new Uri(@"ws://127.0.0.1:5999/ws"), new CancellationToken()).Wait();
             Task.Run(() =>
             {
@@ -35,15 +36,11 @@ namespace WebSocket_Client
         {
 
             ClientWebSocket client = new ClientWebSocket();
-
             client.Options.AddSubProtocol("protocol1");
-
+            client.Options.SetRequestHeader("test", "aaaaaaa");
             await client.ConnectAsync(new Uri(BaseUrl), CancellationToken.None);
 
             Console.WriteLine("Connect success");
-
-
-
             await client.SendAsync(new ArraySegment<byte>(Encoding.Unicode.GetBytes(@"{""protocol"":""json"", ""version"":1}")), WebSocketMessageType.Text, true, CancellationToken.None);//发送握手包
 
             Console.WriteLine("Send success");

@@ -57,6 +57,7 @@ namespace WebSocket_Server
             Console.OutputEncoding = UnicodeEncoding.Unicode;
             var buffer = new byte[1024 * 4];
             WebSocketReceiveResult result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+            string token = context.Request.Headers["test"];
             while (!result.CloseStatus.HasValue)
             {
                 //await webSocket.SendAsync(new ArraySegment<byte>(buffer, 0, result.Count), result.MessageType, result.EndOfMessage, CancellationToken.None);
