@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using System;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace Signalr_Server.Hubs
 {
@@ -26,11 +29,23 @@ namespace Signalr_Server.Hubs
         /// <returns></returns>
         public Task SendMessageToGroup(string group, string msg)
         {
-            return Clients.Group(group).SendAsync("ReceiveMessage",msg);
+            return Clients.Group(group).SendAsync("ReceiveMessage", msg);
+        }
+        public Task OnlineCount()
+        {
+            return Task.Run(() =>
+            {
+                var readom = new Random();
+                while (true)
+                {
+                    Thread.Sleep(1000);
+                    Clients.Caller.SendAsync("OnlineCount", readom.Next(100, 200));
+                }
+            });
         }
         public Task SendMessageToClient(string userCode, string msg)
         {
-            return Clients.Client(userCode).SendAsync("ReceiveMessage",msg);
+            return Clients.Client(userCode).SendAsync("ReceiveMessage", msg);
         }
     }
 }

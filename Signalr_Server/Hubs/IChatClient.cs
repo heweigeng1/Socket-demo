@@ -4,8 +4,8 @@ namespace Signalr_Server.Hubs
 {
     public interface IChatClient
     {
-        Task ReceiveMessage(string user, string msg);
-        Task ReceiveMessage(string msg);
+        Task StrongReceiveMessage(string user, string msg);
+        Task StrongReceiveMessage(string msg);
 
     }
 }

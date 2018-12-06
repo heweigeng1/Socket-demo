@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebSocket_Server", "WebSock
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebSocket_Client", "WebSocket_Client\WebSocket_Client.csproj", "{A54D3FDD-3E3B-4C67-8706-AC5B32815DC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Signalr_Server", "Signalr_Server\Signalr_Server.csproj", "{40AAEAE7-AA8B-4E46-A3C4-562A2460B13F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Signalr_Server", "Signalr_Server\Signalr_Server.csproj", "{40AAEAE7-AA8B-4E46-A3C4-562A2460B13F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Signalr_Client", "Signalr_Client\Signalr_Client.csproj", "{36E3E438-DE5C-403B-B653-C4712FDF8B8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{40AAEAE7-AA8B-4E46-A3C4-562A2460B13F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40AAEAE7-AA8B-4E46-A3C4-562A2460B13F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40AAEAE7-AA8B-4E46-A3C4-562A2460B13F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36E3E438-DE5C-403B-B653-C4712FDF8B8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36E3E438-DE5C-403B-B653-C4712FDF8B8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36E3E438-DE5C-403B-B653-C4712FDF8B8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36E3E438-DE5C-403B-B653-C4712FDF8B8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
